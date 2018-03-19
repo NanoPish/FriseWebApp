@@ -24,7 +24,7 @@ router.get('/', function(req, res, next) {
             for (var i = 0; i < rows.length; i++) {
                 events.push(rows[i]);
             }
-            res.render('index', { title: 'Express', events: events });
+            res.render('index.ejs', { title: 'Express', events: events });
         }
     });
     
