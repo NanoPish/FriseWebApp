@@ -1,39 +1,26 @@
 <!DOCTYPE html>
 <html>
-    <head>
+<head>
     <script src="/vis/vis.js"></script>
-    <link href="/vis/vis.css" rel="stylesheet" type="text/css" />
-    <link href="/stylesheets/index.css" rel="stylesheet" type="text/css" />
-    <title>LaFrise</title>
-	</head>
-	<body>
-    <div id="visualization"></div>
+    <link href="/vis/vis.css" rel="stylesheet" type="text/css"/>
+    <link href="/stylesheets/index.css" rel="stylesheet" type="text/css"/>
+    <title><%= title %></title>
+</head>
+<body>
 
-    <script type="text/javascript">
-    var eventsFromDb = <%- JSON.stringify(events) %>;
-    var data = [];
-    var i = 0;
-    var u = 0;
-    while (u < eventsFromDb.length) {
-      var event = {};
-      if (u % 1000 === 0) {
-        console.log(u);
-        event['id'] = eventsFromDb[u].id;
-        event['content'] = eventsFromDb[u].description;
-        event['start'] = eventsFromDb[u].date;
-        data[i] = event;
-        i++;
-      }
-      u++;
-    }
-    var items = new vis.DataSet(data);
+<div id="visualization">
+</div>
+
+<script type="text/javascript">
     var container = document.getElementById('visualization');
     var options = {};
-    var timeline = new vis.Timeline(container, items, options);
-    timeline.on('select', function (properties) {
-    alert('selected items: ' + properties.items);
-    });
-  </script>
+    var wikiset = <%-JSON.stringify(wiki_data)%>;
 
-	</body>
+    var lelel = new vis.DataSet(wikiset);
+    var timeline = new vis.Timeline(container,  lelel, options);
+    timeline.on('select', function (properties) {
+         alert('selected items: ' + properties.items);
+     });
+</script>
+</body>
 </html>
