@@ -4,10 +4,28 @@
     <script src="/vis/vis.js"></script>
     <link href="/vis/vis.css" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/index.css" rel="stylesheet" type="text/css" />
+    <!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <!--Import materialize.css-->
+      <link type="text/css" rel="stylesheet" href="/materialize/css/materialize.min.css"  media="screen,projection"/>
+
+      <!--Let browser know website is optimized for mobile-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>LaFrise</title>
 	</head>
 	<body>
-    <div id="visualization"></div>
+
+    <nav>
+       <div class="nav-wrapper grey darken-3">
+         <a href="#" class="brand-logo">La Frise</a>
+         <ul id="nav-mobile" class="right hide-on-med-and-down">
+           <li><a id="wiki">Wikipedia</a></li>
+           <li><a id="PandaScore">PandaScore</a></li>
+         </ul>
+       </div>
+     </nav>
+
+    <div id="visualization" class="laFrise"></div>
 
     <script type="text/javascript">
     var eventsFromDb = <%- JSON.stringify(events) %>;
@@ -16,9 +34,9 @@
     var u = 0;
     while (u < eventsFromDb.length) {
       var event = {};
-      if (u % 1000 === 0) {
-        console.log(u);
-        event['id'] = eventsFromDb[u].id;
+      if (u % 1000 === 0 && u <= 24000) {
+        console.log(i);
+        event['id'] = i;
         event['content'] = eventsFromDb[u].description;
         event['start'] = eventsFromDb[u].date;
         data[i] = event;
@@ -27,12 +45,14 @@
       u++;
     }
     var items = new vis.DataSet(data);
+    console.log(items);
     var container = document.getElementById('visualization');
-    var options = {};
+    var options = {
+      height: '700px',
+      min: new Date(900, 0, 1),
+      max: new Date(2200, 0, 1),
+    };
     var timeline = new vis.Timeline(container, items, options);
-    timeline.on('select', function (properties) {
-    alert('selected items: ' + properties.items);
-    });
   </script>
 
 	</body>

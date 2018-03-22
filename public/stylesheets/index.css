@@ -2,7 +2,28 @@
     background: #slategray;
   }
 
-  .vis-time-axis .vis-text.vis-saturday,
-  .vis-time-axis .vis-text.vis-sunday {
-    color: white;
-  }
+.vis-time-axis .vis-text.vis-saturday,
+.vis-time-axis .vis-text.vis-sunday {
+    color: black;
+}
+
+.vis-item .vis-item-overflow {
+	  overflow: hidden;
+}
+
+.vis-item {
+	background-color: #424242;
+	color: white;
+}
+
+.vis-line {
+	border-color: #F05F40;
+}
+
+.vis-dot {
+	border-color: #F05F40;
+}
+
+.laFrise {
+	margin-top: 10vh;
+}
