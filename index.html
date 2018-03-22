@@ -2,20 +2,19 @@
 <html lang="fr">
   <head>
     <meta charset="utf-8">
-    <title>La Frise</title>
+    <title>Site Officiel de LaFrise</title>
     <meta name="author" content="Adtile">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="icon" href="img\Logo-Tab-Page\Logo-Opaque-2000-2000.png" />
     <link rel="stylesheet" href="css/styles.css">
-    <link href="/vis/vis.css" rel="stylesheet" type="text/css"/>
-    <link href="/css/index.css" rel="stylesheet" type="text/css"/>
-    <link href="/materialize/css/materialize.min.css" rel="stylesheet" type="text/css"/>
     <!--[if lt IE 9]>
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
       <link rel="stylesheet" href="css/ie.css">
-      <![endif]-->
-    <script src="/vis/vis.js"></script>
+    <![endif]-->
     <script src="js/responsive-nav.js"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
   </head>
   <body>
 
@@ -32,31 +31,24 @@
           <li class="menu-item"><a href="http://www.google.com" target="_blank">Mon Compte</a></li>
         </ul>
       </nav>
-      <nav>
-         <div class="nav-wrapper grey darken-3">
-           <ul id="nav-mobile" class="right hide-on-med-and-down">
-             <li><a id="wiki">Wikipedia</a></li>
-             <li><a id="dota">Dota 2</a></li>
-           </ul>
-         </div>
-       </nav>
     </header>
 
     <section id="frise" style="height:850px">
 
-
-      <div id="visualization" class="headerFrise">
-      </div>
-
+        <link rel="stylesheet" href="css/frise.css">
+        
+        <div>
+        </div>
+        
     </section>
 
     <section id="team" style="background-color: #fff9e8">
 
-      <link rel="stylesheet" href="css/team.css">
+      <link rel="stylesheet" href="css/team.css">        
       <h2 class="text-center section-title">L'Equipe LaFrise</h2>
       <h3 class="text-center section-quote">“Pour faire un film, premièrement, une bonne histoire, deuxièmement, une bonne histoire, troisièmement, une bonne histoire.”</h3>
       <h5 class="section-author">Henri-Georges Clouzot</h5>
-
+        
       <div class="divTable">
         <div class="divTableBody">
           <div class="divTableRow">
@@ -97,7 +89,7 @@
       <h2 class="text-center section-title">Nos Partenaires</h2>
       <h3 class="text-center section-quote">“Le meilleur soutien que la direction puisse apporter à un projet, c'est de ne même pas soupçonner son existence avant qu'il ne connaisse la réussite.”</h3>
       <h5 class="section-author">Scott Adams</h5>
-
+      
       <div class="divTable">
         <div class="divTableBody">
           <div class="divTableRow">
@@ -120,14 +112,14 @@
             <div class="divTableCell"><img src="img\Logo-Partners\logo-twitch.png" alt="Hello World"></div>
             <div class="divTableCell"><img src="img\Logo-Partners\logo-jeuxvideo.png" alt="Hello World"></div>
             <div class="divTableCell"><img src="img\Logo-Partners\logo-begeek.png" alt="Hello World"></div>
-          </div>
+          </div>  
         </div>
       </div>
 
     </section>
 
     <section id="premium" style="background-color: #fff9e8">
-
+    
         <link rel="stylesheet" href="css/premium.css">
         <h2 class="text-center section-title">Nos Offres Premium</h2>
         <h3 class="text-center section-quote">“Nous abandonnons souvent la partie pour notre confort.”</h3>
@@ -146,7 +138,7 @@
                           <li style="background-color:#FFF;">1GB Bandwidth</li>
                           <li class="grey" style="background-color:#eee;border-radius: 0px 0px 10px 10px;"><a href="#" class="button">Sign Up</a></li>
                         </ul>
-                      </div>
+                      </div>                  
                 </div>
                 <div class="divTableCell">
                     <div class="columns">
@@ -161,6 +153,19 @@
                         </ul>
                       </div>
                 </div>
+                <!-- <div class="divTableCell">
+                    <div class="columns">
+                        <ul class="price">
+                          <li class="header" style="background-color:#4CAF50;border-radius: 10px 10px 0px 0px;">Premium</li>
+                          <li class="grey">$ 49.99 / year</li>
+                          <li style="background-color:#FFF;">50GB Storage</li>
+                          <li style="background-color:#FFF;">50 Emails</li>
+                          <li style="background-color:#FFF;">50 Domains</li>
+                          <li style="background-color:#FFF;">5GB Bandwidth</li>
+                          <li class="grey" style="background-color:#eee;border-radius: 0px 0px 10px 10px;"><a href="#" class="button">Sign Up</a></li>
+                        </ul>
+                      </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -178,13 +183,13 @@
           <form action="">
             <label for="fname">Votre Prénom</label>
             <input type="text" id="fname" name="firstname" placeholder="Votre Prénom">
-
+        
             <label for="lname">Votre E-Mail</label>
             <input type="text" id="email" name="lastname" placeholder="Votre E-Mail">
-
+               
             <label for="subject">Message</label>
             <textarea id="subject" name="subject" placeholder="Votre Message" style="height:200px"></textarea>
-
+        
             <input type="submit" value="Envoyer">
           </form>
         </div>
@@ -194,42 +199,5 @@
     <script src="js/fastclick.js"></script>
     <script src="js/scroll.js"></script>
     <script src="js/fixed-responsive-nav.js"></script>
-    <script type="text/javascript">
-      var container = document.getElementById('visualization');
-      var wikiset = <%-JSON.stringify(wiki_data)%>;
-      var dotaset = <%-JSON.stringify(dota_data)%>;
-
-      var wikiDataset = new vis.DataSet(wikiset);
-      var dotaDataset = new vis.DataSet(dotaset);
-      var container = document.getElementById('visualization');
-      var wikiOptions = {
-        height: '700px',
-        min: new Date(800, 0, 1),
-        max: new Date(2200, 0, 1),
-      };
-      var dotaOptions = {
-        height: '700px',
-        min: new Date(2014, 0, 1),
-        max: new Date(2020, 0, 1),
-      };
-      var timeline = new vis.Timeline(container,  wikiDataset, wikiOptions);
-
-      var wiki = document.getElementById("wiki");
-      var dota = document.getElementById("dota");
-      wiki.addEventListener("click", function() {
-        timeline.setItems(wikiDataset);
-        timeline.setOptions(wikiOptions);
-        timeline.redraw();
-        timeline.moveTo(new Date(1905, 1, 1), function() {
-          timeline.zoomOut(1);
-      });
-    });
-      dota.addEventListener("click", function() {
-        timeline.zoomIn(0.5);
-        timeline.setItems(dotaDataset);
-        timeline.setOptions(dotaOptions);
-        timeline.redraw();
-      });
-    </script>
   </body>
 </html>
